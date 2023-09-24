@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="586f79a9-62eb-42c4-9cbf-84191a37c7d5" name="Changes" comment="[add] docker-compose" />
+    <list default="true" id="586f79a9-62eb-42c4-9cbf-84191a37c7d5" name="Changes" comment="[add] deploy">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +40,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Admin/Desktop/vue-lessons",
+    "last_opened_file_path": "C:/Users/Admin/Desktop/records",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -88,6 +90,7 @@
       <workItem from="1666308925157" duration="44000" />
       <workItem from="1666360550314" duration="4038000" />
       <workItem from="1695560918998" duration="12633000" />
+      <workItem from="1695591694990" duration="2272000" />
     </task>
     <task id="LOCAL-00001" summary="[add] docker-compose">
       <option name="closed" value="true" />
@@ -97,7 +100,23 @@
       <option name="project" value="LOCAL" />
       <updated>1695590255759</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[add] project">
+      <option name="closed" value="true" />
+      <created>1695591727929</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695591727929</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[add] deploy">
+      <option name="closed" value="true" />
+      <created>1695593765393</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1695593765393</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +135,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[add] docker-compose" />
-    <option name="LAST_COMMIT_MESSAGE" value="[add] docker-compose" />
+    <MESSAGE value="[add] project" />
+    <MESSAGE value="[add] deploy" />
+    <option name="LAST_COMMIT_MESSAGE" value="[add] deploy" />
   </component>
 </project>
