@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Что-то съедобное</h1>
+    <p>Количество товаров: {{count}}</p>
+
+    <ul>
+    {% for item in example_list %}
+        <li>
+            {{item.name}}
+        </li>
+    {% endfor %}
+    </ul>
+
+    <form action="" method="get">
+        <input type="text" name="search" placeholder="Поиск..."
+               value="{{search|default_if_none:'' }}">
+        <button>Найти</button>
+    </form>
+    <br>
+    <ul>
+        {% for record in records %}
+
+                <b>
+                    <a href="{% url 'record' record.id %}">
+                        {{ record.title }}
+                    </a>
+                </b>
+        <br>
+        <br>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'records_add' %}">Добавить товар</a>
+
+    <br>
+    <br>
+    {% if user.is_authenticated %}
+        <b>Вы вошли как {{ user.username }}</b>
+    <br>
+        <a href="{% url 'logout' %}">Выйти</a>
+    {% else %}
+        <a href="{% url 'registration' %}">Регистрация</a>
+        <a href="{% url 'login' %}">Вход</a>
+    {% endif %}
+
+</body>
+</html>

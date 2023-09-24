@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Добавление товара</title>
+</head>
+<body>
+
+<a href="{% url 'records_list' %}">Главная страница</a>
+
+{% if id %}
+    <a href="{% url 'record' id %}">Перейти к товару</a>
+{% endif %}
+<h1>Добавление товара</h1>
+
+{% if form.errors %}
+    <b>Возникли ошибки при заполнении формы. Пожалуйста, исправьте их:</b>
+    {{ form.errors }}
+{% endif %}
+
+<form action="" method="post">
+    {% csrf_token %}
+
+     <label>
+        Название <br>
+        <input type="text" id="title" name="title" placeholder="Введите название">
+    </label>
+    <br><br>
+
+    <label>
+        Описание товара <br>
+        <textarea name="text" id="text"></textarea>
+    </label>
+    <br><br>
+
+    <label>
+        Рейтинг товара <br>
+        <textarea name="rating" id="text"></textarea>
+    </label>
+    <br><br>
+    <label>
+        Цена товара <br>
+        <textarea name="price" id="text"></textarea>
+    </label>
+    <br><br>
+
+    <button>Добавить товара</button>
+</form>
+
+</body>
+</html>
