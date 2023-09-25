@@ -13,10 +13,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123
 
-networks:
-  web:
-    external: true
-
   nginx-proxy:
     image: jwilder/nginx-proxy:latest
     container_name: nginx-proxy
@@ -47,3 +43,7 @@ networks:
       - ./certs:/etc/nginx/certs:rw
       - ./html:/usr/share/nginx/html
     restart: always
+
+networks:
+  web:
+    external: true
