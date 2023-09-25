@@ -1,11 +1,9 @@
-version: '2'
+version: '3'
 services:
   web:
     build: .
-    environment:
-      VIRTUAL_HOST: aliya-kek.com
-      LETSENCRYPT_HOST: aliya-domain.com
-      LETSENCRYPT_EMAIL: email@example.com
+    ports:
+      - "8000:8000"
     volumes:
       - .:/app
     depends_on:
@@ -16,15 +14,3 @@ services:
       POSTGRES_DB: records
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123
-
-  nginx-proxy:
-    image: jwilder/nginx-proxy:latest
-    container_name: nginx-proxy
-    restart: always
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-    labels:
-      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: 'true'
