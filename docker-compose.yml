@@ -2,8 +2,10 @@ version: '3'
 services:
   web:
     build: .
-    ports:
-      - "8000:8000"
+    environment:
+      VIRTUAL_HOST: http://192.168.88.239/  # Замените your-domain.com на ваш домен
+      LETSENCRYPT_HOST: http://192.168.88.239/  # Замените your-domain.com на ваш домен
+      LETSENCRYPT_EMAIL: a.raziapova@mail.ru  # Замените на вашу почту
     volumes:
       - .:/app
     depends_on:
@@ -14,3 +16,12 @@ services:
       POSTGRES_DB: records
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
