@@ -1,7 +1,11 @@
-version: '2'
+version: '3'
 services:
   web:
     build: .
+    environment:
+      VIRTUAL_HOST: http://192.168.88.239/  # Замените your-domain.com на ваш домен
+      LETSENCRYPT_HOST: http://192.168.88.239/  # Замените your-domain.com на ваш домен
+      LETSENCRYPT_EMAIL: a.raziapova@mail.ru  # Замените на вашу почту
     volumes:
       - .:/app
     depends_on:
@@ -14,36 +18,10 @@ services:
       POSTGRES_PASSWORD: 123
 
   nginx-proxy:
-    image: jwilder/nginx-proxy:latest
+    image: jwilder/nginx-proxy
     container_name: nginx-proxy
-    restart: always
-    networks:
-      - web
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./vhost.d:/etc/nginx/vhost.d:rw
-      - ./certs:/etc/nginx/certs:rw
-      - ./html:/usr/share/nginx/html
-    labels:
-      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: '1'
-
-  letsencrypt-nginx-proxy-companion:
-    image: jrcs/letsencrypt-nginx-proxy-companion
-    container_name: nginx-proxy-letsencrypt
-    environment:
-      DEBUG: 'true'
-    volumes_from:
-      - nginx-proxy
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./vhost.d:/etc/nginx/vhost.d:rw
-      - ./certs:/etc/nginx/certs:rw
-      - ./html:/usr/share/nginx/html
-    restart: always
-
-networks:
-  web:
-    external: true
