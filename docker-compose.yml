@@ -17,8 +17,6 @@ services:
     image: jwilder/nginx-proxy:latest
     container_name: nginx-proxy
     restart: always
-    networks:
-      - web
     ports:
       - 80:80
       - 443:443
@@ -26,8 +24,3 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     labels:
       com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: '1'
-
-networks:
-  web:
-    external:
-      name: web
