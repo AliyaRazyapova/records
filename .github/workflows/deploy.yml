@@ -18,12 +18,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install dependencies
+      - name: Install Docker
         run: |
           sudo apt-get update
-          sudo apt-get install -y docker.io docker-compose
+          sudo apt-get remove docker.io -y
+          sudo apt-get install -y docker-ce docker-ce-cli containerd.io
           sudo systemctl start docker
           sudo systemctl enable docker
+
+      - name: Wait for Docker to start
+        run: |
+          while [ ! -S /var/run/docker.sock ]; do
+            sleep 1
+          done
 
       - name: Build and deploy
         run: |
