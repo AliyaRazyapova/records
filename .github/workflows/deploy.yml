@@ -34,6 +34,6 @@ jobs:
 
       - name: Build and deploy
         run: |
-          cd /home/user/records/
+          cd ./records/
           docker-compose down
           docker-compose up -d
