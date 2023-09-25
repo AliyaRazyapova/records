@@ -2,6 +2,10 @@ version: '2'
 services:
   web:
     build: .
+    environment:
+      VIRTUAL_HOST: aliya-kek.com
+      LETSENCRYPT_HOST: aliya-domain.com
+      LETSENCRYPT_EMAIL: email@example.com
     volumes:
       - .:/app
     depends_on:
@@ -23,4 +27,4 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     labels:
-      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: '1'
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: 'true'
