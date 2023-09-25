@@ -3,8 +3,8 @@ services:
   web:
     build: .
     environment:
-      VIRTUAL_HOST: http://192.168.88.239/  # Замените your-domain.com на ваш домен
-      LETSENCRYPT_HOST: http://192.168.88.239/  # Замените your-domain.com на ваш домен
+      VIRTUAL_HOST: example-aliya.com  # Замените your-domain.com на ваш домен
+      LETSENCRYPT_HOST: example-aliya.com  # Замените your-domain.com на ваш домен
       LETSENCRYPT_EMAIL: a.raziapova@mail.ru  # Замените на вашу почту
     volumes:
       - .:/app
